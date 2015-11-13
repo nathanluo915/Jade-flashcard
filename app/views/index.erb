@@ -1,5 +1,10 @@
-<h3> Index page </h3>
+<h1> Flashcard Decks</h1>
 
-<h4> Here are the decks </h4>
+<ul class="entries-list no-bullets no-padding">
+  <% @decks.each do |deck| %>
+  <li>
+    <a href="/decks/<% deck.id %>"><%= deck.name %></a>
+  </li>
+  <% end %>
+</ul>
 
-<% Decks

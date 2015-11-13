@@ -1,0 +1,10 @@
+<h1> <%= @deck.name %> Questions</h1>
+
+
+
+<p><%= @card.question %>
+
+  <form action="decks/:id" method="post">
+    <label for="guess">Your Guess:</label>
+    <input type="text" name="guess" />
+  </form>
