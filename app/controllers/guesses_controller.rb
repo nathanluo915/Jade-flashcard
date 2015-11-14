@@ -1,8 +1,8 @@
 get '/guesses/:id' do
   @guess = Guess.find(params[:id])
   @card = @guess.card
-  erb :"guesses/show"
 
+  erb :"guesses/show"
 end
 
 
@@ -14,7 +14,7 @@ post '/guesses' do
   guess.correct = params[:response] == card.answer ? true : false
 
   guess.save
-  session[:guess_id] = guess.id
+  # binding.pry
 
   redirect "/guesses/#{guess.id}"
 
