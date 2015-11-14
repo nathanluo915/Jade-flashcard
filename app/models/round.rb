@@ -14,6 +14,7 @@ class Round < ActiveRecord::Base
     cards.shuffle!
 
     while card = cards.pop
+      # binding.pry
       if !Guess.exists?(round_id: self.id, card_id: card.id, cycle: current_cycle)
         break
       end

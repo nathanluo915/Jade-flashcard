@@ -23,7 +23,10 @@
     <a href="/users/new">SIGNUP</a>
   <% else %>
     <%= session[:username] %>
-    <a href="/session"></a>
+    <form method="post" action="/session">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Logout">
+    </form>
   <%end%>
   <h1><a href="/">BestFlashcardsite.com</a><h1>
     <h4>Much better than anyone else's flashcard site, I think</h4>

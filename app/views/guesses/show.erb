@@ -1,0 +1,11 @@
+<p><%= @card.question %></p>
+
+<% if @guess.correct %>
+<p> You are right!</p>
+<% else %>
+<p>Wrong! The answer is: <%=@card.answer %></p>
+<% end %>
+
+<div>
+<a href="/cards/next-card">Next Card!</a>
+</div>
