@@ -18,7 +18,14 @@
   <title></title>
 </head>
 <body>
-  <h1>BestFlashcardsite.com<h1>
+  <% if !session[:user_id] %>
+    <a href="/session">LOGIN</a>
+    <a href="/users/new">SIGNUP</a>
+  <% else %>
+    <%= session[:username] %>
+    <a href="/session"></a>
+  <%end%>
+  <h1><a href="/">BestFlashcardsite.com</a><h1>
     <h4>Much better than anyone else's flashcard site, I think</h4>
   <%= yield %>
 </body>
