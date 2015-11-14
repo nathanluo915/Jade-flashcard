@@ -6,7 +6,7 @@ class Round < ActiveRecord::Base
 
   def next_card(current_cycle)
     if current_cycle == 1
-      cards = self.deck.cards
+      cards = self.deck.cards.to_a
     else
       cards = Guess.where(round_id: round_id, correct: false, cycle: current_cycle - 1).map(&:card)
     end

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 
+  <!--
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
@@ -18,6 +18,15 @@
   <title></title>
 </head>
 <body>
+  <% if !session[:user_id] %>
+    <a href="/session">LOGIN</a>
+    <a href="/users/new">SIGNUP</a>
+  <% else %>
+    <%= session[:username] %>
+    <a href="/session"></a>
+  <%end%>
+  <h1><a href="/">BestFlashcardsite.com</a><h1>
+    <h4>Much better than anyone else's flashcard site, I think</h4>
   <%= yield %>
 </body>
 </html>

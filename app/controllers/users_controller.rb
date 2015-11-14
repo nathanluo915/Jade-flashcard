@@ -1,10 +1,13 @@
-
 get '/users/new' do
   erb :"users/new"
 end
 
+get '/users' do
+  erb :"users/login"
+end
+
 post '/users' do
-  user = User.new(params)
+  user = User.new(params[:post])
   if user.save
     session[:user_id] = user.id
     redirect '/'
@@ -25,7 +28,7 @@ get '/users/:id' do
   end
 end
 
-get '/users/:id/edit'
+get '/users/:id/edit' do
   if session[:user_id] ==  params[:id]
     @user = User.find(params[:id])
     erb :'users/edit'
