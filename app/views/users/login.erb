@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>LOGIN</h2>
+</div>
+
+<div class="container">
+  <% if @entry %>
+  <ul>
+    <% @entry.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+  </ul>
+<% end %>
+</div>
+
+<div class="container">
+  <form method="post" action="/login">
+    <input id="username" name="post[username]" placeholder="Username"><br>
+    <input type="password" id="password" name="post[password_hash]" placeholder="Password"><br>
+    <input type="submit" value="Login">
+  </form>
+</div>
+

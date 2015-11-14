@@ -10,4 +10,3 @@ get '/cards' do
 		#figure this out
 	end
 end
-

@@ -1,0 +1,20 @@
+<div class="container">
+<h2>SIGN UP</h2>
+</div>
+
+<div class="container">
+  <% if @entry %>
+<ul>
+  <% @entry.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<form method="post" action="/users">
+  <input id="username" name="post[username]" placeholder="Username"><br>
+  <input id="email" name="post[email]" placeholder="Email"><br>
+  <input id="password" name="post[password]" placeholder="Password"><br>
+  <input type="submit" value="Sign me up!">
+</form>
+</div>
