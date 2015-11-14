@@ -1,6 +1,7 @@
 get '/cards/:id' do
 	round = Round.find(session[:round_id])
   @card = round.next_card(session[:cycle])
+  session[:card_id] = @card.id
 	erb :'cards/show'
 end
 

@@ -15,3 +15,8 @@ post "/session/new" do
     erb :"users/login"
   end
 end
+
+delete "/session" do
+  session.clear
+  redirect "/"
+end
