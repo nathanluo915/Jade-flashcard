@@ -1,18 +1,11 @@
 get '/cards/:id' do
-	session[:deck_index] += 1
-
 	@deck = Deck.find(session[:deck_id])
-
-	if index < @deck.cards.length
-		@card = @deck.cards[@index]
-	else
-		redirect("/decks/#{params[:id]}/results")
-	end
-
+	
+ #see if we can move some logic to a model.
 	if session[:cycle] == 1
 		cards = @deck.cards # => array of cards
 	else
-		cards = Guess.where(round_id: round_id, correct: false, cycle: cycle - 1).map(&:card)
+		cards = Guess.where(round_id: round_id, correct: false, cycle: session[:cycle] - 1).map(&:card)
 	end
 
 	cards.shuffle!
@@ -23,7 +16,7 @@ get '/cards/:id' do
 			break
 		end
 	end
-
+  #this won't work. when the last card of a cycle is registered it will be registered to the next cycle. Move this logic to after the last form is sent for the last card
 	if cards.length == 0
 		session[:cycle] += 1
 		redirect('/cards')
@@ -33,14 +26,12 @@ get '/cards/:id' do
 end
 
 get '/cards' do
-
 	if Guess.where(round_id: session[:round_id], cycle: session[:cycle] - 1, correct: false).length == 0
-	redirect "/rounds/#{session[:round_id}"
-else
-	#figure this out
+		redirect "/rounds/#{session[:round_id}"
+	else
+		#figure this out
 	end
-
 end
 
 
-get '/cards/:id/results'
+get '/cards/:id/result'
