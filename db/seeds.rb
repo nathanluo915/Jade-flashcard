@@ -1,4 +1,4 @@
-User.create(username: "Elephant_lover_322", email: "Eleforlife@gmail.com", password_hash: "123")
+User.create(username: "Elephant_lover_322", email: "Eleforlife@gmail.com", password: "123")
 
 Deck.create(name: "Elephants")
 Deck.create(name: "Whiteboard")

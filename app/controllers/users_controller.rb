@@ -55,7 +55,7 @@ end
 put '/users/:id' do
   if session[:user_id] == params[:id]
     user = User.find(params[:id])
-    user.update(name: params[:name], email: params[:email], password_hash: params[:password_hash])
+    user.update(name: params[:name], email: params[:email], password: params[:password])
   else
     erb :'404'
   end
