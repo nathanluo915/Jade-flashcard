@@ -1,0 +1,17 @@
+<div>
+  <% @results.each do |name, res| %>
+    <div>
+      Deck <%= name %>:
+      <table>
+        <tr><td>First Correct Guesses</td><td>Total Guesses</td><td>Date</td></tr>
+        <% res.each do |hsh| %>
+        <tr>
+          <td><%= hsh[:first_guess] %></td>
+          <td><%= hsh[:total_guesses]%></td>
+          <td><%= hsh[:update_time] %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  <% end %>
+</div>

@@ -1,8 +1,17 @@
 get '/cards/:id' do
 	round = Round.find(session[:round_id])
   @card = round.next_card(session[:cycle])
-  session[:card_id] = @card.id
-	erb :'cards/show'
+  if @card
+    session[:card_id] = @card.id
+	  erb :'cards/show'
+  else
+    session[:cycle] += 1
+    if  round.next_card(session[:cycle]).nil?
+      redirect "/rounds/#{round.id}"
+    else
+      redirect "/rounds/#{round.id}/next-cycle"
+    end
+  end
 end
 
 get '/cards' do

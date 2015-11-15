@@ -5,7 +5,7 @@ end
 post "/session/new" do
   user = User.find_by(email: params[:email])
 
-  if user && user.password_hash == params[:password_hash]
+  if user && user.password == params[:password]
     session[:user_id] = user.id
     session[:username] = user.username
     p session

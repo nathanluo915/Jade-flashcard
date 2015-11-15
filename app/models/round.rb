@@ -8,7 +8,7 @@ class Round < ActiveRecord::Base
     if current_cycle == 1
       cards = self.deck.cards.to_a
     else
-      cards = Guess.where(round_id: round_id, correct: false, cycle: current_cycle - 1).map(&:card)
+      cards = Guess.where(round_id: self.id, correct: false, cycle: current_cycle - 1).map(&:card)
     end
 
     cards.shuffle!
