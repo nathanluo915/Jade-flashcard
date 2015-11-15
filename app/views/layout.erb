@@ -22,7 +22,7 @@
     <a href="/session">LOGIN</a>
     <a href="/users/new">SIGNUP</a>
   <% else %>
-    <%= session[:username] %>
+    <a href="/users/<%= session[:user_id]%>"><%= session[:username] %></a>
     <form method="post" action="/session">
       <input type="hidden" name="_method" value="delete">
       <input type="submit" value="Logout">

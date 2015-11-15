@@ -20,8 +20,23 @@ end
 get '/users/:id' do
   if session[:user_id]
     @user = User.find(params[:id])
-    @decks = @users.decks
-    # Iterate over @decks in erb file. In the table for first guess
+    @decks = @user.decks
+    @results = {}
+
+    @decks.each do |deck|
+      # binding.pry
+      @results[deck.name]=[]
+      deck.rounds.each do |round|
+        hsh={}
+        hsh[:first_guess]= round.first_round_correct
+        hsh[:total_guesses]= round.total_guesses
+        hsh[:update_time] = round.updated_at.to_date
+        @results[deck.name] << hsh
+      end
+
+    end
+
+    erb :"users/show"
   else
     # Need a 404 page
     erb :'404'

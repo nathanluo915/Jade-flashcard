@@ -14,10 +14,4 @@ get '/decks/:id' do
 	erb :'decks/show'
 end
 
-get '/decks/:id/results' do
-	session[:deck_id] = 0
-
-	@correct_answers = Round.
-	erb :'decks/results'
-end
 
