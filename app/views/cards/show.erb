@@ -1,9 +1,7 @@
+<p><%= @card.question %></p>
 
-
-<p><%= @card.question %>
-
-  <form action="/guesses" method="post">
-    <label for="guess">Your Guess:</label>
-    <input type="text" name="response"/>
-    <input type="submit" value="Submit" class="button">
-  </form>
+<form action="/guesses" method="post">
+  <label for="guess">Your Guess:</label>
+  <input type="text" name="response"/>
+  <input type="submit" value="Submit" class="button" />
+</form>

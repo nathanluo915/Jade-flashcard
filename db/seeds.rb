@@ -1,5 +1,8 @@
 User.create(username: "Elephant_lover_322", email: "Eleforlife@gmail.com", password: "123")
 
+#ZM: Make sure you assign these created decks to variables. 
+#    Then when you are creating cards you will use the variables.id
+
 Deck.create(name: "Elephants")
 Deck.create(name: "Ruby Basics")
 Deck.create(name: "Popcorn")

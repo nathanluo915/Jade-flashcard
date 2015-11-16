@@ -1,11 +1,14 @@
 get '/cards/:id' do
 	round = Round.find(session[:round_id])
   @card = round.next_card(session[:cycle])
+
   if @card
     session[:card_id] = @card.id
 	  erb :'cards/show'
   else
+
     session[:cycle] += 1
+    
     if  round.next_card(session[:cycle]).nil?
       redirect "/rounds/#{round.id}"
     else

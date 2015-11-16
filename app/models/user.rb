@@ -1,11 +1,13 @@
 class User < ActiveRecord::Base
-  validates :username, :email, :password_hash, presence: true
+  include BCrypt
+  
   has_many :rounds, dependent: :destroy
   has_many :decks, through: :rounds
   has_many :guesses, through: :rounds
+  
+  validates :username, :email, :password_hash, presence: true
 
   # users.password_hash in the database is a :string
-  include BCrypt
 
   def password
     @password ||= Password.new(password_hash)

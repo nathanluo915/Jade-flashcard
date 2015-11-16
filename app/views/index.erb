@@ -1,15 +1,12 @@
 <% if logged_in? %>
-<h2> Flashcard Decks</h2>
-
-<ul class="entries-list no-bullets no-padding">
-  <% @decks.each do |deck| %>
-  <li>
-    <a href="/decks/<%= deck.id %>"><%= deck.name %></a>
-  </li>
-  <% end %>
-</ul>
+  <h2> Flashcard Decks</h2>
+  <ul class="entries-list no-bullets no-padding">
+    <% @decks.each do |deck| %>
+      <li>
+        <a href="/decks/<%= deck.id %>"><%= deck.name %></a>
+      </li>
+    <% end %>
+  </ul>
 <% else %>
-
-<h3> Please <a href="/session">login</a> or <a href="/users/new">create a profile</a> to play! </h3>
-
+  <h3> Please <a href="/session">login</a> or <a href="/users/new">create a profile</a> to play! </h3>
 <% end %>
