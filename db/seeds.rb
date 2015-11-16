@@ -10,6 +10,11 @@ Card.create([{question: "Elephants can reach their tails by their noses.", answe
             {question: "Elephants have no natural predators other than humans who hunt them for ivory.", answer: "true", deck_id: 1},
             {question: "Normal maximum lifespan in the wild 40-50 years.", answer: "false", deck_id: 1}])
 
+Card.create([{question: "Who's Luke Skywalker's father?", answer: "Darth Vador", deck_id: 4},
+             {question: "Who's Darth Vador's master?", answer: "Darth Sidious", deck_id: 4},
+             {question: "Who's scream was heard in each film?", answer: "Wilhelm", deck_id: 4}
+            ]}
+
 
 Card.create([{question: "To create a second name for the variable or method.", answer: "alias", deck_id: 2},
              {question: "A command that appends two or more objects together.", answer: "and", deck_id: 2},
